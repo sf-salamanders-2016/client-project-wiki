@@ -1,4 +1,5 @@
-# Mentor Session Scheduler
+# Team Mentor Session Scheduler 
+>>>>>>> 5f09e6afa89c1c0e0379da783511801f15f04385
 
 ## Team not-the-wiki
 
