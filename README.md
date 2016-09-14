@@ -1,12 +1,9 @@
 # Team Mentor Session Scheduler 
 
-* Connor Ray
-* Jeff Roy
-* Nicholas Davidson
-* Dom Brassey
-
-# MVP
-* 
+* Connor Ray - cray9503
+* Jeff Roy - jeffreyroy
+* Nicholas Davidson - ndavidsonsf
+* Dom Brassey - domlet
 
 ### Git Workflow
 
@@ -36,7 +33,7 @@
 - Local: git merge **(feature)** **development**
 - (continue doing your work)
 
-### User Stories
+### MVP - User Stories
 
 ## Product
 * Web-based application with secure user authentication
