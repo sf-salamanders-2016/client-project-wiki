@@ -1,9 +1,12 @@
-# Team Wiki
+# Mentor Session Scheduler
 
-* Connor Ray
-* Jeff Roy
-* Nicholas Davidson
-* Dom Brassey
+## Team not-the-wiki
 
-# MVP
-* 
+* Connor Ray - cray9503
+* Jeff Roy - jeffreyroy
+* Nicholas Davidson - ndavidsonsf
+* Dom Brassey - domlet
+
+## Project Description
+
+Web application to schedule mentor sessions.
