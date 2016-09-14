@@ -1,4 +1,4 @@
-# Team Wiki
+# Team Mentor Session Scheduler 
 
 * Connor Ray
 * Jeff Roy
