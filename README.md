@@ -35,3 +35,26 @@
 - Local: git co **(feature)**
 - Local: git merge **(feature)** **development**
 - (continue doing your work)
+
+### User Stories
+
+## Product
+* Web-based application with secure user authentication
+* Features
+## Users
+* Users can register and log in
+* Users can add contact information to their profile
+* Users can have one of two roles (Mentor / Student)
+## Appointments
+* Appointments can be 30 or 60 minutes in duration
+* Mentor users can create appointment slots
+* Student users can book appointment slots
+## Mentors
+* Mentors indicate (on user profile) their current phase
+* Mentors indicate (on user profile) topics they’re comfortable mentoring on
+* Mentors can see their commitments (booked appointments)
+* Mentors can privately provide feedback about appointments
+* Mentors can privately rate appointments from 1-5
+## Students
+* Students can see their commitments (booked appointments)
+* Students can privately provide feedback about appointments
