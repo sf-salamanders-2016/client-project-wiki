@@ -7,7 +7,7 @@ class Appointment < ApplicationRecord
 
   # helpers
   def mentor_name
-    mentor.user.full_name
+    mentor.user.full_name if mentor
   end
 
   def student_name
@@ -35,4 +35,5 @@ class Appointment < ApplicationRecord
   def complete?
     Time.now > end_time
   end
+
 end

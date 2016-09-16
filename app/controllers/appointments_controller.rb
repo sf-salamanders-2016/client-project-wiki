@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
 
   # Include ApplicationHelper with current_user method
+  # Switch in SessionHelper once it's available
   include ApplicationHelper
 
   def show
