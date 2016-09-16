@@ -1,12 +1,14 @@
 <h1>User Profile</h1>
 <% if current_user %>
-
 <table>
   <tr><th>First Name:</th><td><%= @user.first_name %></td></tr>
   <tr><th>Last Name:</th><td><%= @user.last_name %></td></tr>
   <tr><th>email:</th><td><%= @user.email %></td></tr>
   <tr><th>mobile:</th><td><%= @user.mobile %></td></tr>
   <tr><th>current_phase:</th><td><%= @user.current_phase %></td></tr>
-  <tr><th>pronouns:</th><td><%= @user.pronouns %>
-</td></tr>
+  <tr><th>pronouns:</th><td><%= @user.pronouns %></td></tr>
 </table>
+
+<% else %>
+No current user.
+<% end %>

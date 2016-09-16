@@ -17,7 +17,7 @@
 <%= f.text_field :mobile, placeholder: 'Mobile' %>
 Current Phase: <%= f.select :current_phase, [0, 1, 2, 3]%><br>
 Pronouns: <%= f.select :pronouns, ['she/her', 'he/him', 'they/them', 'not specified']%>
-Role: <%= f.select :role, ['Mentor', 'Student'%>
+Role: <%#= f.select :role, ['Mentor', 'Student'] %>
 <%= f.password_field :password, placeholder: 'Password' %>
 <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
 <%= f.submit "Register", class: "button" %>
