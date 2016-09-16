@@ -43,6 +43,8 @@ mentor_review = MentorReview.create(appointment: appointment, student_rating_of_
 # Create more appointments for testing purposes
 10.times { Appointment.create(student: student, mentor: mentor, start_time: Time.now, duration: 30) }
 
+Appointment.create(student: nil, mentor: mentor, start_time: Time.now, duration: 30)
 
+Appointment.create(student: nil, mentor: mentor1, start_time: Time.now, duration: 30)
 
-
+Appointment.create(student: nil, mentor: mentor2, start_time: Time.now, duration: 30)
