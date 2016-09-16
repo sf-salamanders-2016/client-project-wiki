@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def customer_params
-      params.require(:email).permit(:first_name, :last_name, :mobile, :email, :pronouns, :current_phase, :password, password_confirmation)
+  def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :mobile, :pronouns, :current_phase, :password)
   end
 end
