@@ -1,5 +1,7 @@
+<h1>Mentor Appointments</h1>
+
 <div class="open-appointments">
-  <h1>My Slots</h1>
+  <h2>My Slots</h2>
   <% @slots.each do |appointment| %>
     <ul>
       <a href="/appointments/<%= appointment.id %>"><li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li></a>
@@ -9,7 +11,7 @@
 </div>
 
 <div class="set-appointemts">
-  <h1>My Appointments</h1>
+  <h2>My Appointments</h2>
   <% @mentor.appointments.each do |appointment| %>
     <ul>
       <a href="/appointments/<%= appointment.id %>"><li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li></a>
@@ -18,7 +20,7 @@
 </div>
 
 <div class="complete-appointemts">
-  <h1>Complete Appointments</h1>
+  <h2>Complete Appointments</h2>
   <% @complete.each do |appointment| %>
     <ul>
       <a href="/appointments/<%= appointment.id %>"><li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li></a>
