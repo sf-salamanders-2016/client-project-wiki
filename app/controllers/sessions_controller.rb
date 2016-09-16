@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
+
   def new
+    redirect_to user_url
   end
 
   def create
@@ -19,6 +22,9 @@ class SessionsController < ApplicationController
       flash[:error] = "Password is incorrect, try again."
       redirect_to new_user_path
     end
+  end
+
+  def update
   end
 
   def destroy
