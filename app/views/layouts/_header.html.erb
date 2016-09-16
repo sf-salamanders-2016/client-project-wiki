@@ -1,5 +1,5 @@
 <div id='app-header'>
-<% if @user %>
+<% if @user.id == session[:current_user_id] %>
 <p><%= link_to 'Logout', logout_path_url %></p>
 <% end %>
 <h1>Mentor Session Scheduler</h1>
