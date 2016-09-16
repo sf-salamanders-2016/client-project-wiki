@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # get 'mentor_reviews/new'
+
+  # get 'mentor_reviews/show'
+
+  # get 'student_reviews/new'
+
+  # get 'student_reviews/show'
+
+  get 'appointments/show'
+
   root :to => "users#new"
 
-  resources :appointments
+  resources :appointments do
+    resources :student_reviews
+    resources :mentor_reviews
+  end
+
   resources :students
   resources :mentors
   resources :users, except: [:index]
