@@ -45,5 +45,9 @@
   <% end %>
 <% end %>
 
-
+<% if @appointment.complete? %>
+  <% if @appointment.mentor_review %>
+    <%= link_to "See student's review of session", appointment_mentor_review_path(@appointment, @appointment.mentor_review) %>
+  <% end %>
+<% end %>
 
