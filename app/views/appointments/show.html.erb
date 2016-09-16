@@ -22,3 +22,22 @@
 <p>
   End time: <%= @appointment.ends_at %>
 </p>
+
+<% if true # replace this with student condition %>
+  <%= form_for @appointment do |f| %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<% if true # replace this with student condition %>
+  <form>
+    <button type="submit">Cancel</button>
+  </form>
+<% end %>
+
+<% if true # replace this with mentor condition %>
+  <%= form_for @appointment, method: :delete do |f| %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+

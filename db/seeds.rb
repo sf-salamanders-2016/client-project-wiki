@@ -14,8 +14,8 @@ StudentReview.destroy_all
 MentorReview.destroy_all
 Topic.destroy_all
 
-john = User.create(first_name: "John", last_name: "Doe", email: "john@john.com", password: "johnjohn")
-jane = User.create(first_name: "Jane", last_name: "Roe", email: "jane@jane.com", password: "janejane")
+john = User.create(first_name: "John", last_name: "Doe", email: "john@john.com" )
+jane = User.create(first_name: "Jane", last_name: "Roe", email: "jane@jane.com" )
 student = Student.create(user: john)
 mentor = Mentor.create(user: jane)
 appointment = Appointment.create(student: student, mentor: mentor, start_time: Time.now, duration: 30)
@@ -24,7 +24,8 @@ mentor.topics << ruby
 StudentReview.create(appointment: appointment, mentor_rating_of_student: 5, mentor_review_of_student: "Great")
 mentor_review = MentorReview.create(appointment: appointment, student_rating_of_mentor: 4, student_review_of_mentor: "Excellent")
 
-
+# Create more appointments for testing purposes
+10.times { Appointment.create(student: student, mentor: mentor, start_time: Time.now, duration: 30) }
 
 
 
