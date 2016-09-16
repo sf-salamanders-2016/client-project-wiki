@@ -11,7 +11,6 @@ class AppointmentsController < ApplicationController
   # Do we need to create custom routes?
   def update
     @appointment = Appointment.find(params[:id])
-    p params[:appointment]
     if @appointment.update_attributes(appointment_params)
       flash[:success] = "Appointment updated"
     end
