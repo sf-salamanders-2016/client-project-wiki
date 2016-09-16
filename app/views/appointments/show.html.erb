@@ -1,14 +1,17 @@
 <h1>Commitment Details</h1>
+<%= "Logged in as student" if student? %>
+<%= "Logged in as mentor" if mentor? %>
+
 <% mentor = @appointment.mentor.user %>
 <% student = @appointment.student.user if @appointment.student %>
 <% date = @appointment.start_time.strftime("%B %e, %Y") %>
 <p>
-  Mentor: <%= mentor.first_name %> <%= mentor.last_name %>
+  Mentor: <%= mentor.full_name %>
 </p>
 <p>
   Student:
   <% if student %>
-    <%= student.first_name %> <%= student.last_name %>
+    <%= student.full_name %>
   <% else %>
     (unassigned)
   <% end %>
@@ -23,39 +26,39 @@
   End time: <%= @appointment.ends_at %>
 </p>
 
-<p>(Show the first two buttons only to students)</p>
-<% if true # replace this with student condition %>
-  <%= form_for @appointment do |f| %>
-    <%= f.hidden_field :student_id, value: current_user.id %>
-    <%= f.submit 'Sign Up!' %>
+<% if student? %>
+  <% if !student %>
+    <%= form_for @appointment do |f| %>
+      <%= f.hidden_field :student_id, value: current_user.id %>
+      <%= f.submit 'Sign Up!' %>
+    <% end %>
+  <% else %>
+    <% if student == current_user %>
+      <%= form_for @appointment do |f| %>
+        <%= f.hidden_field :student_id, value: nil %>
+        <%= f.submit 'Cancel Appointment' %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
-<% if true # replace this with: if !mentor? && student %>
-  <%= form_for @appointment do |f| %>
-    <%= f.hidden_field :student_id, value: nil %>
-    <%= f.submit 'Cancel Appointment' %>
-  <% end %>
-<% end %>
-
-<p>(Show the last button only to mentors)</p>
-<% if true # replace this with: if mentor? %>
+<% if mentor? && @appointment.mentor.user == current_user %>
   <%= form_for @appointment, method: :delete do |f| %>
     <%= f.submit 'Delete Appointment' %>
   <% end %>
 <% end %>
 
 <% if @appointment.complete? %>
-  <% if @appointment.mentor_review %>
-    <%= link_to "See student's review of session", appointment_mentor_review_path(@appointment, @appointment.mentor_review) %>
+  <p>Show this stuff when appointment complete</p>
+  <% if mentor == current_user %>
+    <% if @appointment.mentor_review %>
+      <%= link_to "See student's review of session", appointment_mentor_review_path(@appointment, @appointment.mentor_review) %>
+    <% end %>
   <% end %>
-
-  <% if @appointment.student_review %>
-    <%= link_to "See mentor's review of session", appointment_student_review_path(@appointment, @appointment.student_review) %>
+  <% if @appointment.student && student == current_user %>
+    <% if @appointment.student_review %>
+      <%= link_to "See mentor's review of session", appointment_student_review_path(@appointment, @appointment.student_review) %>
+    <% end %>
   <% end %>
-
-<% else %>
-
-
 <% end %>
 
