@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user.nil?
       p 'if'
       flash[:error] = "Email does not exist, try again."
-      redirect_to users_path
+      redirect_to new_user_path
     elsif @user.password == params[:password]
       p 'elsif'
       session[:current_user_id] = @user.id
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     else
       p 'else'
       flash[:error] = "Password is incorrect, try again."
-      redirect_to users_path
+      redirect_to new_user_path
     end
   end
 
