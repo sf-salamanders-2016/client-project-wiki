@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :current_phase
       t.string :pronouns
       t.string :photo_url
+      t.string :email
+      t.string :password
 
       t.timestamps
     end

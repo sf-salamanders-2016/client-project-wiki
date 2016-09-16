@@ -70,13 +70,13 @@ ActiveRecord::Schema.define(version: 20160915164853) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "mobile"
-    t.string   "email"
-    t.integer  "password_hash"
     t.integer  "current_phase"
     t.string   "pronouns"
     t.string   "photo_url"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
