@@ -24,8 +24,15 @@ class Appointment < ApplicationRecord
     start_time.strftime("%l:%M %p")
   end
 
+  def end_time
+    start_time + duration * 60
+  end
+
   def ends_at
-    end_time = start_time + duration * 60
     end_time.strftime("%l:%M %p")
+  end
+
+  def complete?
+    Time.now > end_time
   end
 end
