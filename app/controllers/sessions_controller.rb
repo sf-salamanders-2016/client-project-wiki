@@ -9,15 +9,15 @@ class SessionsController < ApplicationController
     @user = User.find_by :email => params[:email]
 
     if @user.nil?
-      flash[:error] = "Email does not exist, try again."
       redirect_to new_user_path
+      flash[:error] = "Email does not exist, try again."
     elsif @user.password == params[:password]
       session[:current_user_id] = @user.id
       redirect_to user_url(@user), :success => "You are logged in. Welcome!"
       flash[:notice] = "You are logged in. Welcome!"
     else
-      flash[:error] = "Password is incorrect, try again."
       redirect_to new_user_path
+      flash[:error] = "Password is incorrect, try again."
     end
   end
 
@@ -26,6 +26,10 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:current_user_id] = nil
+    @current_user = nil
+    @user = nil
+    session.clear
+    session.delete(:current_user_id)
     redirect_to new_user_path , :success => "You are logged out. See you later!"
     flash[:notice] = "You are logged out. See you later!"
   end
