@@ -1,1 +1,12 @@
-show user
+<% if @user %>
+  first_name: <%= @user.first_name %><br/>
+  last_name: <%= @user.last_name %><br/>
+  email: <%= @user.email %><br/>
+  mobile: <%= @user.mobile %><br/>
+  current_phase: <%= @user.current_phase %><br/>
+  pronouns: <%= @user.pronouns %><br/>
+
+<% else %>
+  <%= render 'form' %>
+<% end %>
+
