@@ -1,0 +1,68 @@
+<h1>Commitment Details</h1>
+<%= "Logged in as student" if student? %>
+<%= "Logged in as mentor" if mentor? %>
+
+<% mentor = @appointment.mentor.user %>
+<% student = @appointment.student.user if @appointment.student %>
+<% date = @appointment.start_time.strftime("%B %e, %Y") %>
+<p>
+  Mentor: <%= mentor.full_name %>
+</p>
+<p>
+  Student:
+  <% if student %>
+    <%= student.full_name %>
+  <% else %>
+    (unassigned)
+  <% end %>
+</p>
+<p>
+  Date: <%= @appointment.date %>
+</p>
+<p>
+  Start time: <%= @appointment.starts_at %>
+</p>
+<p>
+  End time: <%= @appointment.ends_at %>
+</p>
+
+<% if student? %>
+  <% if !student %>
+    <%= form_for @appointment do |f| %>
+      <%= f.hidden_field :student_id, value: current_user.student.id %>
+      <%= f.submit 'Sign Up!' %>
+    <% end %>
+  <% else %>
+    <% if student == current_user %>
+      <%= form_for @appointment do |f| %>
+        <%= f.hidden_field :student_id, value: nil %>
+        <%= f.submit 'Cancel Appointment' %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if mentor? && @appointment.mentor.user == current_user %>
+  <%= form_for @appointment, method: :delete do |f| %>
+    <%= f.submit 'Delete Appointment' %>
+  <% end %>
+<% end %>
+
+<% if @appointment.complete? %>
+  <p>Show this stuff when appointment complete</p>
+  <% if mentor == current_user %>
+    <% if @appointment.mentor_review %>
+      <%= link_to "See student's review of session", appointment_mentor_review_path(@appointment, @appointment.mentor_review) %>
+    <% else %>
+      <%= link_to "Review this session", "/appointments/#{@appointment.id}/mentor_reviews/new" %>
+    <% end %>
+  <% end %>
+  <% if @appointment.student && student == current_user %>
+    <% if @appointment.student_review %>
+      <%= link_to "See mentor's review of session", appointment_student_review_path(@appointment, @appointment.student_review) %>
+    <% else %>
+      <%= link_to "Review this session", "/appointments/#{@appointment.id}/student_reviews/new" %>
+    <% end %>
+  <% end %>
+<% end %>
+

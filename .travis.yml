@@ -1,0 +1,8 @@
+services:
+  - postgresql
+before_script:
+  -psql -c "create database mentor_session_scheduler" -U postgres
+language: ruby
+rvm:
+  - 2.3.1
+

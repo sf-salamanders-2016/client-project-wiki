@@ -1,0 +1,19 @@
+<h1>Session review</h1>
+
+<p>This is your review of <%= @appointment.student.user.full_name %>.  Please assign a rating of 1-5 and give feedback.  Be sure your feedback is Actionable, Specific, and Kind.</p>
+
+<%= form_for [@appointment, @student_review] do |f| %>
+  <div>
+    <%= f.label :mentor_rating_of_student, "Rating: " %>
+    <%= f.select :mentor_rating_of_student do %>
+      <% (1..5).each do |n| %>
+        <%= content_tag(:option, n, value: n) %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.label :mentor_review_of_student, "Comments: " %>
+  <div>
+    <%= f.text_area :mentor_review_of_student, size: "60x12" %>
+  </div>
+  <%= f.submit 'Submit' %>
+<% end %>

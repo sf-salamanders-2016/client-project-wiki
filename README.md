@@ -1,4 +1,4 @@
-# Team Mentor Session Scheduler 
+# Team Mentor Session Scheduler
 
 * Connor Ray - cray9503
 * Jeff Roy - jeffreyroy
