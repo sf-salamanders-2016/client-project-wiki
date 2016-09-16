@@ -15,10 +15,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    p 'hello'
     @user = User.new(user_params)
     if @user.save
-      p 'if user save'
       session[:user_id] = @user.id
       redirect_to user_url(@user.id)
       flash[:notice] = "Thanks for registering!"

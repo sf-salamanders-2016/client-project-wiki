@@ -2,41 +2,38 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-  context "if current user logged in" do
-    before do
-      user_params = { email: 'tom@tom.com' }
-      post :create, user: user_params
+  context "creating a new user" do
+
+    context "if current user logged in" do
+      before do
+        user_params = { email: 'tom@tom.com' }
+        post :create, user: user_params
+      end
+
+      it "shows existing user" do
+        get :show
+        response.should be_success
+      end
+
     end
 
-    it "shows existing user" do
-      get :show
-      response.should be_success
-    end
-  end
+    xcontext "something" do
 
-  context "if no current user" do
-    it "shows registration page" do
-      get :new
-      response.should be_success
-    end
-  end
+      it "redirects to users path with notice on successful registered" do
+        User.stub!(:new) {mock_model('User', :save => true)}
+        post :create
 
-  xcontext "creating a new user" do
+        flash[:notice].should_not be_nil
+        response.should redirect_to(user_path)
+      end
 
-    it "redirects to users path with notice on successful registered" do
-      User.stub!(:new) {mock_model('User', :save => true)}
-      post :create
+      it "re-renders new template on failed registration" do
+        User.stub!(:new) {mock_model('User', :save => false)}
+        post :create
 
-      flash[:notice].should_not be_nil
-      response.should redirect_to(user_path)
-    end
-
-    it "re-renders new template on failed registration" do
-      User.stub!(:new) {mock_model('User', :save => false)}
-      post :create
-
-      flash[:notice].should be_nil
-      response.should render_template('new')
+        flash[:notice].should be_nil
+        response.should render_template('new')
+      end
     end
   end
 
