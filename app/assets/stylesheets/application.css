@@ -20,8 +20,18 @@ html, body {
   padding: 0;
 }
 
+.container {
+  margin: auto;
+  padding: 2em;
+  margin-top: 2em;
+  border: 1px solid gray;
+  border-radius: 1em;
+  width: 80%;
+}
+
 input {
   display: block;
+  margin-top: 0.3em;
 }
 
 #app-header {
