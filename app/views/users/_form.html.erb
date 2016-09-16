@@ -1,0 +1,34 @@
+<h2>Register</h2>
+
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= f.text_field :first_name, placeholder: 'First Name' %>
+<%= f.text_field :last_name, placeholder: 'Last Name' %>
+<%= f.text_field :email, placeholder: 'Email' %>
+<%= f.text_field :mobile, placeholder: 'Mobile' %>
+Current Phase: <%= f.select :current_phase, [0, 1, 2, 3]%><br/>
+Pronouns: <%= f.select :pronouns, ['she/her', 'he/him', 'they/them', 'not specified']%><br/>
+
+Check box if you are a mentor: <%= check_box_tag(:mentor) %>
+
+<%= f.password_field :password, placeholder: 'Password' %>
+<%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+<%= f.submit "Register", class: "button" %>
+<% end %>
+
+
+<h2>Login</h2>
+<%= form_tag login_path do %>
+<%= text_field_tag :email, nil, placeholder: 'Email' %>
+<%= password_field_tag :password, nil, placeholder: 'Password' %>
+<%= submit_tag "Login", class: "button" %>
+<% end %>

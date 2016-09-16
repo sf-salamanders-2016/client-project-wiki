@@ -8,6 +8,22 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
   end
 
+  def new
+    @appointment = Appointment.new
+  end
+
+  def create
+    @appointment = Appointment.new(appointment_params)
+
+    if @appointment.save
+      flash[:notice] = 'Appointment created'
+      redirect_to @appointment.mentor
+    else
+      flash[:alert] = 'Appointment not created'
+      render :new
+    end
+  end
+
   # May be more than one way to update an appointment.
   # Do we need to create custom routes?
   def update
@@ -26,7 +42,7 @@ class AppointmentsController < ApplicationController
 
   private
   def appointment_params
-    params.require(:appointment).permit(:student_id)
+    params.require(:appointment).permit(:student_id, :start_time, :duration, :mentor_id)
   end
 
 end

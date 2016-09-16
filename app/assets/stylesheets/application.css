@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+  font-family: arial;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: auto;
+  padding: 2em;
+  margin-top: 2em;
+  border: 1px solid gray;
+  border-radius: 1em;
+  width: 80%;
+}
+
+input {
+  display: block;
+  margin-top: 0.3em;
+}
+
+#app-header {
+  background-color: gray;
+  margin: 0;
+  padding: 0.5em;
+  color: white;
+  font-size: .8em;
+}
+
+#app-header a, #app-header h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+#app-header p {
+  display: block;
+  float: right;
+}
+
+th {
+  text-align: left;
+}

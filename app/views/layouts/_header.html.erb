@@ -1,0 +1,13 @@
+<div id='app-header'>
+
+<% if @current_user %>
+<p>Logged in as <%= current_user.first_name %> <%= current_user.last_name %>
+:: <%= link_to 'My Profile', user_url(current_user.id) %>
+:: <%= link_to 'Logout', logout_path_url %></p>
+<% else %>
+<p>No user logged in.</p>
+<% end %>
+
+<h1><%= link_to 'Mentor Session Scheduler', root_url %></h1>
+
+</div>

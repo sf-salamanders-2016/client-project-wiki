@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   # get 'mentor_reviews/new'
 
   # get 'mentor_reviews/show'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'appointments/show'
 
-  root "users#index"
+  root :to => "users#new"
 
   resources :appointments do
     resources :student_reviews
@@ -18,5 +20,18 @@ Rails.application.routes.draw do
 
   resources :students
   resources :mentors
+  resources :users, except: [:index]
+
+  get 'appointment/show'
+  get 'login' => 'sessions#new', :as => 'login'
+
+  post 'login' => 'sessions#create', :as => :login_path
+  get 'logout' => 'sessions#destroy', :as => :logout_path
+
+  get 'ratings/new'
+  get 'ratings/show'
+  get 'ratings/create'
+
+  get 'appointments/show'
 
 end
