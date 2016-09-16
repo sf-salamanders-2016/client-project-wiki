@@ -7,15 +7,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by :email => params[:email]
-
     if @user.nil?
       redirect_to new_user_path
       flash[:error] = "Email does not exist, try again."
     elsif @user.password == params[:password]
       session[:current_user_id] = @user.id
       flash[:notice] = "You are logged in. Welcome!"
-    end
-
     else
       redirect_to new_user_path
       flash[:error] = "Password is incorrect, try again."
@@ -34,3 +31,5 @@ class SessionsController < ApplicationController
     redirect_to new_user_path
     flash[:notice] = "You are logged out. See you later!"
   end
+
+end
