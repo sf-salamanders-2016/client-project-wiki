@@ -23,21 +23,25 @@
   End time: <%= @appointment.ends_at %>
 </p>
 
+<p>(Show the first two buttons only to students)</p>
 <% if true # replace this with student condition %>
   <%= form_for @appointment do |f| %>
-    <%= f.submit %>
+    <%= f.hidden_field :student_id, value: current_user.id %>
+    <%= f.submit 'Sign Up!' %>
   <% end %>
 <% end %>
 
-<% if true # replace this with student condition %>
-  <form>
-    <button type="submit">Cancel</button>
-  </form>
+<% if true # replace this with: if !mentor? && student %>
+  <%= form_for @appointment do |f| %>
+    <%= f.hidden_field :student_id, value: nil %>
+    <%= f.submit 'Cancel Appointment' %>
+  <% end %>
 <% end %>
 
-<% if true # replace this with mentor condition %>
+<p>(Show the last button only to mentors)</p>
+<% if true # replace this with: if mentor? %>
   <%= form_for @appointment, method: :delete do |f| %>
-    <%= f.submit %>
+    <%= f.submit 'Delete Appointment' %>
   <% end %>
 <% end %>
 
