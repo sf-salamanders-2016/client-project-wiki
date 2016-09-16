@@ -4,10 +4,16 @@
 
 <%= form_for [@appointment, @student_review] do |f| %>
   <div>
-    <%= f.label :rating %>
-
+    <%= f.label :mentor_rating_of_student, "Rating: " %>
+    <%= f.select :mentor_rating_of_student do %>
+      <% (1..5).each do |n| %>
+        <%= content_tag(:option, n, value: n) %>
+      <% end %>
+    <% end %>
   </div>
-  <%= f.label :review %>
-  <%= f.text_area :mentor_review_of_student, size: "60x12" %>
+  <%= f.label :mentor_review_of_student, "Comments: " %>
+  <div>
+    <%= f.text_area :mentor_review_of_student, size: "60x12" %>
+  </div>
   <%= f.submit 'Submit' %>
 <% end %>
