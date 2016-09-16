@@ -1,0 +1,24 @@
+<h1>Commitment Details</h1>
+<% mentor = @appointment.mentor.user %>
+<% student = @appointment.student.user if @appointment.student %>
+<% date = @appointment.start_time.strftime("%B %e, %Y") %>
+<p>
+  Mentor: <%= mentor.first_name %> <%= mentor.last_name %>
+</p>
+<p>
+  Student:
+  <% if student %>
+    <%= student.first_name %> <%= student.last_name %>
+  <% else %>
+    (unassigned)
+  <% end %>
+</p>
+<p>
+  Date: <%= @appointment.date %>
+</p>
+<p>
+  Start time: <%= @appointment.starts_at %>
+</p>
+<p>
+  End time: <%= @appointment.ends_at %>
+</p>
