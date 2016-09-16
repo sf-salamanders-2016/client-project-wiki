@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'appointment/show'
   get "login" => "sessions#new", :as => "login"
 
+  post 'login' => 'sessions#new', :as => :login_path
+  post 'logout_path' => 'sessions#destroy', :as => :logout_path
+
   root to: "users#new"
   resource :users, except: [:index]
 end
