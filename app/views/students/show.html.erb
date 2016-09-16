@@ -1,0 +1,5 @@
+<% @student.appointments.each do |appointment| %>
+  <ul>
+    <li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li>
+  </ul>
+<% end %>
