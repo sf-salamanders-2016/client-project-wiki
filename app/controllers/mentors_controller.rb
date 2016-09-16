@@ -3,6 +3,9 @@ class MentorsController < ApplicationController
   before_action :set_slots, only: [:show]
   before_action :set_complete, only: [:show]
 
+  include AppointmentsHelper
+
+
   def create
     @mentor = Mentor.new(mentor_params)
 
@@ -43,8 +46,7 @@ end
   end
 
   def set_complete
-    mentor = Mentor.find(params[:id])
-    @complete = mentor.appointments.where(complete: true)
+    @complete = complete_appointments(@mentor)
   end
 
 
