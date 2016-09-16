@@ -42,3 +42,7 @@ input {
   display: block;
   float: right;
 }
+
+th {
+  text-align: left;
+}
