@@ -14,6 +14,7 @@ StudentReview.destroy_all
 MentorReview.destroy_all
 Topic.destroy_all
 
+
 john = User.create(first_name: "John", last_name: "Doe", email: "john@john.com", password: "johnjohn")
 jane = User.create(first_name: "Jane", last_name: "Roe", email: "jane@jane.com", password: "janejane")
 bon = User.create(first_name: "Bon", last_name: "Boe", email: "bane@jane.com", password: "janejane")
@@ -37,8 +38,6 @@ mentor1.topics << java
 mentor2.topics << css
 StudentReview.create(appointment: appointment, mentor_rating_of_student: 5, mentor_review_of_student: "Great")
 mentor_review = MentorReview.create(appointment: appointment, student_rating_of_mentor: 4, student_review_of_mentor: "Excellent")
-<<<<<<< Updated upstream
-=======
 
 
 # Create more appointments for testing purposes
@@ -49,4 +48,3 @@ Appointment.create(student: nil, mentor: mentor, start_time: Time.now, duration:
 Appointment.create(student: nil, mentor: mentor1, start_time: Time.now, duration: 30)
 
 Appointment.create(student: nil, mentor: mentor2, start_time: Time.now, duration: 30)
->>>>>>> Stashed changes
