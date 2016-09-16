@@ -36,4 +36,12 @@ class Appointment < ApplicationRecord
     Time.now > end_time
   end
 
+  def current_student?
+    student && current_user == student
+  end
+
+  def current_mentor?
+    current_user == mentor
+  end
+
 end
