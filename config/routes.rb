@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :student_reviews
     resources :mentor_reviews
   end
+
   resources :students
   resources :mentors
 

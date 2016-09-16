@@ -1,2 +1,13 @@
-<h1>StudentReviews#new</h1>
-<p>Find me in app/views/student_reviews/new.html.erb</p>
+<h1>Session review</h1>
+
+<p>This is your review of <%= @appointment.student.user.full_name %>.  Please assign a rating of 1-5 and give feedback.  Be sure your feedback is Actionable, Specific, and Kind.</p>
+
+<%= form_for [@appointment, @student_review] do |f| %>
+  <div>
+    <%= f.label :rating %>
+
+  </div>
+  <%= f.label :review %>
+  <%= f.text_area :mentor_review_of_student, size: "60x12" %>
+  <%= f.submit 'Submit' %>
+<% end %>
