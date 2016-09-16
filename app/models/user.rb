@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :student
   has_one :mentor
+<<<<<<< HEAD
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -11,4 +12,6 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+=======
+>>>>>>> dev
 end
