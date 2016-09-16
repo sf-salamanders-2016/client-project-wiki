@@ -14,7 +14,8 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-
+    p params
+    p current_user.id
     if @appointment.save
       flash[:notice] = 'Appointment created'
       redirect_to @appointment.mentor

@@ -27,18 +27,18 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_url(@user.id)
       if params[:mentor] == '1'
         @mentor = Mentor.new(user_id: @user.id)
-        p "*" * 50
-        p @mentor.save
+        @mentor.save
+        redirect_to mentor_url(@mentor)
+        flash[:notice] = "Thanks for registering!"
       else
         @student = Student.new(user_id: @user.id)
-        p "*" * 50
-        p @student.save
+        @student.save
+        redirect_to student_url(@student)
+        flash[:notice] = "Thanks for registering!"
       end
-      flash[:notice] = "Thanks for registering!"
-      params
+
     else
       flash[:notice] = "User did not save."
       render :new
