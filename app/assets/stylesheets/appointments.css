@@ -1,0 +1,38 @@
+.appointment-container {
+  text-align: center;
+  width: 100%;
+  dispaly: flex;
+}
+
+.open-appointments {
+  width: 30%;
+  display: inline-block;
+  vertical-align: text-top;
+  border: solid 1px black;
+  margin: 10px;
+}
+
+.set-appointments {
+  width: 30%;
+  display: inline-block;
+  vertical-align: text-top;
+  border: solid 1px black;
+  margin: 10px;
+}
+
+.complete-appointments {
+  width: 30%;
+  display: inline-block;
+  vertical-align: text-top;
+  border: solid 1px black;
+  margin: 10px;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+li {
+  margin-right: 35px;
+}

@@ -3,15 +3,18 @@ module SessionsHelper
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def current_mentor
-    @mentor ||= Mentor.find(session[:user_id]) if session[:user_id]
+  def mentor?
+    return false if !current_user
+    @mentor = Mentor.where(user_id: current_user.id)
+    p session[:user_id] == Mentor.where(user_id: @user.id)
+    return true if @mentor.length > 0
+    false
   end
 
-  # mentor? returns true if user logged in as mentor,
-  # false if logged in as student
-  def mentor?
-    # Need to set session[:role] to "mentor" or "student"
-    # when user logs in
-    p session[:user_id] == Mentor.where(user_id: @user.id)
+  def student?
+    return false if !current_user
+    @student = Student.where(user_id: current_user.id)
+    return true if @student.length > 0
+    false
   end
 end

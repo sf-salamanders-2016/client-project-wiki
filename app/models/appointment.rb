@@ -1,4 +1,7 @@
 class Appointment < ApplicationRecord
+
+  include SessionsHelper
+
   has_one :student_review
   has_one :mentor_review
   # Need to be able to create appointment without student
@@ -35,5 +38,13 @@ class Appointment < ApplicationRecord
   def complete?
     Time.now > end_time
   end
+
+  # def current_student?
+  #   student && current_user == student
+  # end
+
+  # def current_mentor?
+  #   current_user == mentor
+  # end
 
 end
