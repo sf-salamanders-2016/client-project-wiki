@@ -37,3 +37,16 @@ mentor1.topics << java
 mentor2.topics << css
 StudentReview.create(appointment: appointment, mentor_rating_of_student: 5, mentor_review_of_student: "Great")
 mentor_review = MentorReview.create(appointment: appointment, student_rating_of_mentor: 4, student_review_of_mentor: "Excellent")
+<<<<<<< Updated upstream
+=======
+
+
+# Create more appointments for testing purposes
+10.times { Appointment.create(student: student, mentor: mentor, start_time: Time.now, duration: 30) }
+
+Appointment.create(student: nil, mentor: mentor, start_time: Time.now, duration: 30)
+
+Appointment.create(student: nil, mentor: mentor1, start_time: Time.now, duration: 30)
+
+Appointment.create(student: nil, mentor: mentor2, start_time: Time.now, duration: 30)
+>>>>>>> Stashed changes

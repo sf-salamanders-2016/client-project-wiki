@@ -1,5 +1,26 @@
-<% @student.appointments.each do |appointment| %>
-  <ul>
-    <li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li>
-  </ul>
-<% end %>
+<div class="open-appointments">
+  <h1>Open Slots</h1>
+  <% @appointments.each do |appointment| %>
+    <ul>
+      <a href="/appointments/<%= appointment.id %>"><li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li></a>
+    </ul>
+  <% end %>
+</div>
+
+<div class="set-appointemts">
+  <h1>My Appointments</h1>
+  <% @student.appointments.each do |appointment| %>
+    <ul>
+      <a href="/appointments/<%= appointment.id %>"><li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li></a>
+    </ul>
+  <% end %>
+</div>
+
+<div class="complete-appointemts">
+  <h1>Completed Appointments</h1>
+  <% @complete.each do |appointment| %>
+    <ul>
+      <a href="/appointments/<%= appointment.id %>"><li>Start Time: <%= appointment.start_time  %><br>Duration: <%= appointment.duration %></li></a>
+    </ul>
+  <% end %>
+</div>

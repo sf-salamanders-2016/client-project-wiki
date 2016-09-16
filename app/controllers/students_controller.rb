@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointments, only: [:show]
+  before_action :set_complete, only: [:show]
 
   def create
     @student = Student.new(student_params)
@@ -32,7 +34,16 @@ end
   private
 
   def set_student
-      @student = Student.find(params[:id])
+    @student = Student.find(params[:id])
+  end
+
+  def set_appointments
+    @appointments = Appointment.where(student: nil)
+  end
+
+  def set_complete
+    student = Student.find(params[:id])
+    @complete = student.appointments.where(complete: true)
   end
 
 end
