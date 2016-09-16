@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
 
-  def index
-    @user = User.new
-  end
-
   def show
     @user = User.find(params[:id])
     # if current_user
@@ -33,7 +29,8 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    redirect_to new_users_url
+    flash[:notice] = "You have successfully deleted your account."
   end
 
   private
